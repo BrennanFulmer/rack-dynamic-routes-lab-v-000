@@ -6,9 +6,8 @@ class Application
     
     if req.path.match(/items/)
       item_name = req.path.split("/items/")[1]
-      item = @@items.detect { |item| item.name == item_name }
-      
-      if item
+
+      if item = @@items.detect { |item| item.name == item_name }
         resp.write item.price
       else
         resp.write "Item not found"
