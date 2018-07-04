@@ -5,8 +5,8 @@ class Application
     req = Rack::Request.new(env)
     
     if req.path.match(/items/)
-      items_name = req.path.split("/items/")[1]
-      item = @@items.detect { |item| item.name == items_name }
+      item_name = req.path.split("/items/")[1]
+      item = @@items.detect { |item| item.name == item_name }
       
       if item
         resp.write item.price
